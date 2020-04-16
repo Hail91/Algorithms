@@ -1,9 +1,23 @@
 #!/usr/bin/python
 
 import math
+test_recipe = { 'milk': 100, 'butter': 50, 'flour': 5 }
+test_ingredients = { 'milk': 132, 'butter': 48, 'flour': 51 }
 
 def recipe_batches(recipe, ingredients):
-  pass 
+  batches = 0
+  while True:
+    for value in recipe:
+      if value not in ingredients:
+        return batches
+      elif recipe[value] > ingredients[value]:
+        return batches
+      else:
+        ingredients[value] -= recipe[value] 
+    batches += 1
+
+recipe_batches(test_recipe, test_ingredients)
+
 
 
 if __name__ == '__main__':
